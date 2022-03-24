@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sheba Hospital</title>
+	<meta name="description" content="Clinic HTML layout">
+	<meta name="author" content="Nadim"><!-- Design by Shahin Srowar https://dribbble.com/shots/3407794-Hospital-Admin-Material-Design-Concept -->
+  <link rel="stylesheet" href="main.css">
+	<!-- Charts by c3.js -->
+	<link href="c3charts/c3.css" rel="stylesheet">
+	<script src="c3charts/docs/js/d3-5.8.2.min.js" charset="utf-8"></script>
+	<script src="c3charts/c3.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="logo">
+				<img src="images/logo.png" />
+				<p>Sheba Hospital</p>
+			</div>
+			<div class="user-info"><a href="#">
+				<i class="material-icons md-18">search</i></a>
+				<a href="#"><i class="material-icons md-18">mail</i><span class="exp notification">4</span></a>
+				<a href="#"><i class="material-icons md-18">notifications</i></a>
+				<a href="#">Logout 	&nbsp;<i class="material-icons md-18">exit_to_app</i></a>
+			</div>
+		</header>
+		<aside>
+			<div class="user">
+				<img class="avatar" src="images/user.png" />
+				<p>Welcome, <br /><span>Username</span></p>
+			</div>
+			<nav>
+				<ul>
+					<li class="active"><a href="#"><i class="material-icons md-24">dashboard</i>Dashboard</a></li>
+					<li><a href="#"><i class="material-icons md-24">person</i>Doctors</a></li>
+					<li><a href="#"><i class="material-icons md-24">people</i>Patients</a></li>
+					<li><a href="#"><i class="material-icons md-24">calendar_today</i>Appointment</a></li>
+					<li><a href="#"><i class="material-icons md-24">equalizer</i>Reports</a></li>
+					<li><a href="#"><i class="material-icons md-24">attach_money</i>Billing</a></li>
+					<li><a href="#"><i class="material-icons md-24">mail</i>Mailbox &nbsp;<span class="notification">4</span></a></li>
+					<li><a href="#"><i class="material-icons md-24">wc</i>Hospital Staff</a></li>
+					<li><a href="#"><i class="material-icons md-24">grid_on</i>Evemt Management</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main>
+			<div class="dashboard">
+				<header>
+					<span>Dashboard</span>
+				</header>
+				<div class="stats">
+					<section>
+						<button id="doctor"><i class="material-icons md-40">person</i></button>
+						<p><strong>10</strong><br />Doctor</p>
+					</section>
+					<section>
+						<button id="operation"><i class="zmdi zmdi-assignment-o md-40"></i></button>
+						<p><strong>7</strong><br />Operation Report</p>
+					</section>
+					<section>
+						<button id="birth"><i class="material-icons md-40">tag_faces</i></button>
+						<p><strong>3</strong><br />Birth Report</p>
+					</section>
+					<section>
+						<button id="death"><i class="material-icons md-40">hotel</i></button>
+						<p><strong>1</strong><br />Death Report</p>
+					</section>
+				</div>
+				<div class="graph1">
+					<section><div id="chart"></div></section>
+					<section><div id="chart2"></div></section>
+				</div>
+				<!-- <div class="graph2">
+					<section></section>
+					<section></section>
+				</div>
+				<div class="graph3">
+					<section></section>
+					<section></section>
+				</div> -->
+			</div>
+		</main>
+	</div>
+    <script>
+			var chart = c3.generate({
+				data: {
+					columns: [
+						['Quality of Service', 5, 4, 6, 3, 4, 2],
+						['Service Recommendations', 1, 3, 2, 1, 6,4]
+					],
+					types: {
+						'Quality of Service': 'area-spline',
+						'Service Recommendations': 'area-spline'
+					}
+				}
+			});
+
+
+			var chart2 = c3.generate({
+				bindto: '#chart2',
+				data: {
+				  columns: [
+					['OPD Earnings', 30, 200, 100, 400, 150, 250],
+					['IPD Earnings', 50, 20, 10, 40, 15, 25]
+				  ],
+				  colors: {
+					'OPD Earnings': '#21c2d6',
+					'IPD Earnings': '#ee504d'
+				  }
+				}
+			});
+		</script>
+</body>
+</html>
