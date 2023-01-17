@@ -30,22 +30,43 @@
 				<a href="#">Logout 	&nbsp;<i class="material-icons md-18">exit_to_app</i></a>
 			</div>
 		</header>
-		<aside>
+		<aside class="sidebar">
 			<div class="user">
-				<img class="avatar" src="images/user.png" />
-				<p>Welcome, <br /><span>Username</span></p>
+				<img class="user__avatar" src="images/user.png"/>
+                <div class="user__greetings">
+                    <span>Welcome,</span>
+                    <span class="username">Admin</span>
+                </div>
 			</div>
-			<nav>
+			<nav class="sidebar-navigation">
 				<ul>
-					<li class="active"><a href="#"><i class="material-icons md-24">dashboard</i>Dashboard</a></li>
-					<li><a href="#"><i class="material-icons md-24">person</i>Doctors</a></li>
-					<li><a href="#"><i class="material-icons md-24">people</i>Patients</a></li>
-					<li><a href="#"><i class="material-icons md-24">calendar_today</i>Appointment</a></li>
-					<li><a href="#"><i class="material-icons md-24">equalizer</i>Reports</a></li>
-					<li><a href="#"><i class="material-icons md-24">attach_money</i>Billing</a></li>
-					<li><a href="#"><i class="material-icons md-24">mail</i>Mailbox &nbsp;<span class="notification">4</span></a></li>
-					<li><a href="#"><i class="material-icons md-24">wc</i>Hospital Staff</a></li>
-					<li><a href="#"><i class="material-icons md-24">grid_on</i>Evemt Management</a></li>
+                    <li>
+                        <a class="active" href="#" icon="dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="person">Doctors</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="people">Patients</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="calendar_today">Appointment</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="equalizer">Reports</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="attach_money">Billing</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="mail" notification="4">Mailbox</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="wc">Hospital Staff</a>
+                    </li>
+                    <li>
+                        <a href="#" icon="grid_on">Evemt Management</a>
+                    </li>
 				</ul>
 			</nav>
 		</aside>
