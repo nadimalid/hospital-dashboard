@@ -1,7 +1,14 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* , *:before, *:after{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	box-sizing: border-box !important;
+}
+
+html {
+    font-size: 100%;
 }
 
 body {
@@ -14,83 +21,104 @@ body {
 .material-icons.md-40 { font-size: 40px;}
 .zmdi.md-40 { font-size: 40px;}
 
-a:link, a:visited {
-	display: flex;
-	align-items: center;
+ a:link, a:visited {
 	text-decoration: none;
-	font-size: 14px;
-	color: inherit;
 }
-
-.notification {
-	display: flex;
-	justify-content: center;
-	width: 20px;
-	height: 20px;
-	color: white;
-	font-size: 11px;
-	line-height:20px;
-	background-color: #ff3333;
-	border-radius: 10px;
-}
-
-
 
 .container {
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 260px auto;
-	grid-template-rows: 60px auto;
+	grid-template-rows: 1fr auto;
 	grid-template-areas:
 		"header header"
 		"aside main";
 }
 
-.container > header {
+/* header style */
+
+.header {
 	grid-area: header;
 
 	display: grid;
-	grid-template-columns: 260px calc(100% - 260px);
-	padding: 0 31px;
+    grid-template-columns: 260px auto;
+    padding-block: 0.7em;
 	background: #20c0d4;
 	box-shadow: 0px 7px 10px #a7dae0;
-	z-index: 2;
-	overflow: hidden;
+    font-size: 1rem;
 	color: #fefdfd;
+    z-index: 2;
 }
 
 .logo {
-	grid-column: 1 / 2;
-
 	display: flex;
+    justify-content: center;
 	align-items: center;
-	width: 260px;
-	height: 60px;
+    column-gap: 0.7em;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
-	font-size: 20px;
-
+	font-size: 1.250em;
 }
 
-.logo p {
-	padding-left: 20px;
+.logo-img {
+    width: 2em;
+    height: 2em;
 }
 
 .user-info {
-	grid-column: 2 / 3;
-	place-self: center end;
-
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    align-items: center;
+    column-gap: 1.5em;
+    margin-inline: auto 2em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
 
-.exp {
-	position: relative;
-	right: 7px;
-	bottom: 10px;
-	z-index: 3;
+.user-info a {
+    display: flex;
+	align-items: center;
+    position: relative;
+    color: inherit;
 }
 
+.user-info a i {
+    font-size: 1.125em;
+}
+
+.user-info a[notification]::after {
+    content: attr(notification);
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -50%;
+    right: -45%;
+	width: 1.4em;
+    height: 1.4em;
+    padding: 0.18em;
+    background-color: #ff3333;
+	border-radius: 50%;
+	color: white;
+	font-size: 0.75em;
+}
+
+.btn-transparent {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+    background-color: transparent;
+    border: none;
+    font-size: 0.75em;
+    letter-spacing: 0.025em;
+    color: inherit;
+    cursor: pointer;
+}
+
+.btn-transparent[icon]::after {
+    font-family: "Material Icons";
+    content: attr(icon);
+    font-size: 1.5em;
+}
 
 /* sidebar style */
 
@@ -100,10 +128,12 @@ a:link, a:visited {
     display: flex;
     flex-direction: column;
     row-gap: 1.7em;
-	padding: 0 14px 0 16px;
+	padding-inline: 0.875em 1em;
 	background: #fdfdff;
 	box-shadow: 5px 0px 10px #d7d7d7;
 	z-index: 1;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 	color: #3c4858;
 	font-size: 1rem;
 }
@@ -146,30 +176,30 @@ a:link, a:visited {
 }
 
 .sidebar-navigation ul > li a {
+    display: flex;
+	align-items: center;
+    column-gap: 0.7em;
     padding-inline: 1.25em;
     padding-block: 0.9em 1.1em;
     color: #a9afbb;
-    font-size: inherit;
-    letter-spacing: 0.1em;
+    font-size: 0.875em;
+    letter-spacing: 0.025em;
 }
 
 .sidebar-navigation ul > li a::before {
     font-family: "Material Icons";
     content: attr(icon);
-    padding-right: 0.7em;
     font-size: 1.5em;
-    
 }
 
-.sidebar-navigation ul > li [notification]::after {
+.sidebar-navigation ul > li a[notification]::after {
     content: attr(notification);
     display: flex;
 	justify-content: center;
     align-items: center;
 	width: 1.4em;
+    height: 1.4em;
     padding: 0.18em;
-    margin-left: 0.5em;
-	aspect-ratio: 1 / 1;
     background-color: #ff3333;
 	border-radius: 50%;
 	color: white;

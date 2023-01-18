@@ -3,31 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sheba Hospital</title>
+    <title>Sheba Hospital</title>
 	<meta name="description" content="Clinic HTML layout">
 	<meta name="author" content="Nadim"><!-- Design by Shahin Srowar https://dribbble.com/shots/3407794-Hospital-Admin-Material-Design-Concept -->
-  <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css">
 	<!-- Charts by c3.js -->
 	<link href="c3charts/c3.css" rel="stylesheet">
 	<script src="c3charts/docs/js/d3-5.8.2.min.js" charset="utf-8"></script>
 	<script src="c3charts/c3.min.js"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,600&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,600&display=swap" rel="stylesheet"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 </head>
 <body>
 	<div class="container">
-		<header>
+		<header class="header">
 			<div class="logo">
-				<img src="images/logo.png" />
-				<p>Sheba Hospital</p>
+				<img class="logo-img" src="images/logo.png" />
+				<span>Sheba Hospital</span>
 			</div>
-			<div class="user-info"><a href="#">
-				<i class="material-icons md-18">search</i></a>
-				<a href="#"><i class="material-icons md-18">mail</i><span class="exp notification">4</span></a>
-				<a href="#"><i class="material-icons md-18">notifications</i></a>
-				<a href="#">Logout 	&nbsp;<i class="material-icons md-18">exit_to_app</i></a>
+			<div class="user-info">
+                <a href="#"><i class="material-icons">search</i></a>
+				<a href="#" notification="7"><i class="material-icons">mail</i></a>
+				<a href="#" notification="4"><i class="material-icons">notifications</i></a>
+				<button class="btn-transparent" icon="exit_to_app">Logout</button>
 			</div>
 		</header>
 		<aside class="sidebar">
