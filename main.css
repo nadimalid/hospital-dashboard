@@ -19,13 +19,10 @@
 	box-sizing: border-box !important;
 }
 
-html {
-    font-size: 100%;
-}
-
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
+    overflow: auto;
 }
 
  a:link, a:visited {
@@ -34,7 +31,6 @@ body {
 
 .container {
 	display: grid;
-	/* grid-template-columns: 16.25rem auto; */
 	grid-template-rows: 3.75rem auto;
 	grid-template-areas:
 		"header"
@@ -49,8 +45,6 @@ body {
 .header {
 	grid-area: header;
 
-	/* display: grid;
-    grid-template-columns: 16.25rem auto; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,21 +71,12 @@ body {
     font-size: 1em !important;
 }
 
-.company__logo {
-    /* width: 2em;
-    height: 2em; */
-}
-
 .header__user {
     display: block;
     position: relative;
-    /* display: flex;
-    flex-direction: column; */
     height: 100%;
     margin-inline: auto 0.5em;
-    /* background-color: white; */
     border-radius: 5px;
-    /* overflow: hidden; */
 }
 
 .header__user-avatar {
@@ -111,13 +96,10 @@ body {
     right: 0;
     width: 100%;
     display: none;
-    /* display: flex; */
-    flex-direction: column; /* change */
+    flex-direction: column;
     align-items: center;
     row-gap: 0.5em;
-    /* column-gap: 1.5em; */
-    /* margin-inline: 1em; */
-    background-color: white; /* change */
+    background-color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     color: var(--main-color);
@@ -292,7 +274,6 @@ body {
 
     padding: var(--margin-breakpoint-sm);
 	background: var(--main-bg-color);
-    overflow-y: scroll;
 }
 
 .dashboard {
@@ -308,10 +289,8 @@ body {
 .dashboard__stats{
 	display:grid;
     grid-template-columns: repeat(2, 1fr);
-	/* grid-template-columns: repeat(auto-fill, minmax(7em, 1fr)); */
 	gap: 1em;
     grid-auto-flow: row;
-	/* height: 140px; */
 }
 
 .stat {
@@ -348,7 +327,6 @@ body {
 	font-size: 0.8em;
     line-height: 1.3em;
 	text-align: right;
-	/* padding: 33px 29px 25px 5px; */
 }
 
 .stat__data span {
@@ -480,6 +458,10 @@ body {
 }
 
 @media only screen and (min-width: 1280px) {
+    body {
+        overflow: hidden;
+    }
+
     .container {
         grid-template-columns: 16.25rem auto;
     }
@@ -490,7 +472,9 @@ body {
     
 
     .main {
+        height: calc(100vh - 3.75rem);
         padding: 1.6em 2em;
+        overflow-y: scroll;
     }
 
     .main__header {

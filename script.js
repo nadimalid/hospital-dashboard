@@ -12,7 +12,6 @@ closeNavigation.addEventListener("click", () => {
 })
 
 // toggle user menu on small devices
-
 const userMenuToggle = document.querySelector("#toggle-user-menu");
 const userMenu = document.querySelector("#user-menu");
 let userMenuOpen = false;
@@ -28,99 +27,7 @@ userMenuToggle.addEventListener("click", () => {
     console.log(userMenuOpen);
 })
 
-
-
-// var chart = c3.generate({
-//     data: {
-//         columns: [
-//             ['Quality of Service', 5, 4, 6, 3, 4, 2],
-//             ['Service Recommendations', 1, 3, 2, 1, 6,4]
-//         ],
-//         types: {
-//             'Quality of Service': 'area-spline',
-//             'Service Recommendations': 'area-spline'
-//         },
-//         colors: {
-//             'Quality of Service': '#fdc97f',
-//             'Service Recommendations': '#fbbb6b'
-//         }
-//     },
-//     axis: {
-//         x: {
-//           show: false
-//         }
-//     },
-//     grid: {
-//         y: {
-//             lines: [
-//                 {value: 2},
-//                 {value: 4},
-//                 {value: 6},
-//                 {value: 8}
-//             ]
-//         }
-//     },
-//     point: {
-//         show: false
-//     },
-//     legend: {
-//         position: 'inset',
-//         inset: {
-//             anchor: 'top-left',
-//             x: -25,
-//             y: -30,
-//             step: 1
-//         }
-//     },
-//     padding: {
-//         top: 30
-//     }
-// });
-
-
-// var chart2 = c3.generate({
-//     bindto: '#chart2',
-//     data: {
-//       columns: [
-//         ['OPD Earnings', 30, 200, 100, 400, 150, 250],
-//         ['IPD Earnings', 50, 20, 10, 40, 15, 25]
-//       ],
-//       colors: {
-//         'OPD Earnings': '#21c2d6',
-//         'IPD Earnings': '#ee504d'
-//       }
-//     }
-// });
-// var chart3 = c3.generate({
-//     bindto: '#chart2',
-//     data: {
-//       columns: [
-//         ['OPD Earnings', 30, 200, 100, 400, 150, 250],
-//         ['IPD Earnings', 50, 20, 10, 40, 15, 25]
-//       ],
-//       colors: {
-//         'OPD Earnings': '#21c2d6',
-//         'IPD Earnings': '#ee504d'
-//       }
-//     }
-// });
-
-// var chart4 = c3.generate({
-//     bindto: '#chart2',
-//     data: {
-//       columns: [
-//         ['OPD Earnings', 30, 200, 100, 400, 150, 250],
-//         ['IPD Earnings', 50, 20, 10, 40, 15, 25]
-//       ],
-//       colors: {
-//         'OPD Earnings': '#21c2d6',
-//         'IPD Earnings': '#ee504d'
-//       }
-//     }
-// });
-
-// const serviceChart = document.getElementById('serviceChart');
-
+// Charts with dummy data (ChartJS)
 const serviceChart = new Chart('serviceChart', {
     type: 'line',
     data: {
@@ -175,7 +82,7 @@ const serviceChart = new Chart('serviceChart', {
     }
 });
 
-  const earningsChart = new Chart('earningsChart', {
+const earningsChart = new Chart('earningsChart', {
     type: 'line',
     data: {
       labels: [1, 5, 6, 9, 11, 12],
@@ -222,6 +129,240 @@ const serviceChart = new Chart('serviceChart', {
             y: {
                 beginAtZero: true,
                 grid: {
+                    drawTicks: false
+                } 
+            }
+        }
+    }
+});
+
+const newPatientsChart = new Chart('newPatientsChart', {
+    type: 'bar',
+    data: {
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15],
+      datasets: [
+        {
+            label: 'patients',
+            data: [10, 15, 17, 12, 12, 18, 13, 19, 4, 1, 8, 11, 9, 10, 15 ],
+            borderColor: '#21c2d6',
+            backgroundColor: '#21c2d6',
+            pointRadius: 5
+        }
+    ]
+    },
+    options: {
+        responsive: true,
+        tension: 0.3,
+        plugins: {
+            title: {
+                align: "start",
+                display: true,
+                text: 'New Patients'
+            },
+            legend: {
+                display: false
+            }, 
+        },
+        scales: {
+            x: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                }
+            },
+            y: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                } 
+            }
+        }
+    }
+});
+
+const pharmacyChart = new Chart('pharmacyChart', {
+    type: 'line',
+    data: {
+      labels: [1, 5, 6, 9, 11, 12],
+      datasets: [
+        {
+            label: '',
+            fill: false,
+            data: [0, 1, 5, 7, 4, 2, 1],
+            borderColor: '#56af5b',
+            backgroundColor: '#56af5b',
+            pointRadius: 3
+        },
+        {
+            label: '',
+            fill: false,
+            data: [3, 4, 2, 6, 2, 1, 0],
+            borderColor: '#ee504d',
+            backgroundColor: '#ee504d',
+            pointRadius: 3
+        }
+    ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                align: "start",
+                display: true,
+                text: 'New Pharmacy Orders'
+            },
+            legend: {
+                display: false
+            }, 
+        },
+        scales: {
+            x: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                }
+            },
+            y: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                } 
+            }
+        }
+    }
+});
+
+const labChart = new Chart('labChart', {
+    type: 'line',
+    data: {
+      labels: [1, 5, 6, 9, 11, 12],
+      datasets: [
+        {
+            label: '',
+            fill: false,
+            data: [1, 2, 1, 7, 4, 2],
+            borderColor: '#fb8e03',
+            backgroundColor: '#fb8e03',
+            pointRadius: 0
+        },
+        {
+            label: '',
+            fill: false,
+            data: [4, 2, 3, 1, 6, 8],
+            borderColor: '#ee504d',
+            backgroundColor: '#ee504d',
+            pointRadius: 0
+        }
+    ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                align: "start",
+                display: true,
+                text: 'Lab Tests'
+            },
+            legend: {
+                display: false
+            }, 
+        },
+        scales: {
+            x: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                } 
+            }
+        }
+    }
+});
+
+const visitorsChart = new Chart('visitorsChart', {
+    type: 'bar',
+    data: {
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15],
+        datasets: [
+        {
+            label: '',
+            fill: false,
+            data: [12, 8, 18, 17, 16, 13, 15, 18, 10, 10, 16, 13, 11, 9, 7],
+            borderColor: '#ee504d',
+            backgroundColor: '#ee504d',
+            type: 'line',
+            pointRadius: 3
+        },
+        {
+            label: '',
+            fill: false,
+            data: [12, 10, 17, 17, 12, 13, 12, 16, 18, 10, 13, 11, 19, 15, 14],
+            borderColor: '#21c2d6',
+            backgroundColor: '#21c2d6',
+        }
+    ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                align: "start",
+                display: true,
+                text: 'OPD/IPD Visitors'
+            },
+            legend: {
+                display: false
+            }, 
+        },
+        scales: {
+            x: {
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    drawTicks: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                display: false,
+                ticks: {
+                    display: false
+                },
+                grid: {
+                    drawOnChartArea: false,
                     drawTicks: false
                 } 
             }
