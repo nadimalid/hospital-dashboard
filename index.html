@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sheba Hospital</title>
+	<meta name="description" content="Static clinic dashboard HTML layout implementation">
+	<meta name="author" content="Nadim">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header class="header">
+			<div class="company">
+				<img class="company__logo" src="images/logo.png" />
+				<span class="company__name">Sheba Hospital</span>
+			</div>
+            <div class="header__user">
+                <button id="toggle-user-menu" class="header__user-avatar btn-transparent" >
+                    <img src="images/avatar.svg"/>
+                </button>
+                <div id="user-menu" class="header__user-info">
+                    <div><a href="#"><i class="material-icons">search</i></a></div>
+                    <div><a href="#" notification="7"><i class="material-icons">mail</i><span></span></a></div>
+                    <div><a href="#" notification="4"><i class="material-icons">notifications</i></a></div>
+                    <div><button class="btn-transparent logout" icon="exit_to_app"><span>Logout</span></button></div>
+                </div>
+            </div>
+            <button id="open-nav" class="header__menu--open btn-transparent" icon="menu"></button>
+		</header>
+		<aside class="sidebar">
+            <button id="close-nav" class="sidebar__menu--close btn-transparent" icon="close"></button>
+			<div class="user">
+				<img class="user__avatar" src="images/avatar.svg"/>
+                <div class="user__greetings">
+                    <span>Welcome,</span>
+                    <span class="username">Admin</span>
+                </div>
+			</div>
+			<nav class="sidebar-navigation">
+				<ul>
+                    <li><a class="active" href="#" icon="dashboard">Dashboard</a></li>
+                    <li><a href="#" icon="person">Doctors</a></li>
+                    <li><a href="#" icon="people">Patients</a></li>
+                    <li><a href="#" icon="calendar_today">Appointment</a></li>
+                    <li><a href="#" icon="equalizer">Reports</a></li>
+                    <li><a href="#" icon="attach_money">Billing</a></li>
+                    <li><a href="#" icon="mail" notification="4">Mailbox</a></li>
+                    <li><a href="#" icon="wc">Hospital Staff</a></li>
+                    <li><a href="#" icon="grid_on">Evemt Management</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<main class="main">
+			<div class="dashboard">
+				<header class="main__header">
+					<h2>Dashboard</h2>
+				</header>
+				<div class="dashboard__stats">
+					<section class="stat">
+						<span class="stat__icon" id="doctor"><i class="material-icons">person</i></span>
+						<p class="stat__data"><span>10</span>Doctor</p>
+					</section>
+					<section class="stat">
+						<span class="stat__icon" id="operation"><i class="material-icons">content_paste</i></span>
+						<p class="stat__data"><span>7</span>Operation Report</p>
+					</section>
+					<section class="stat">
+						<span class="stat__icon" id="birth"><i class="material-icons">tag_faces</i></span>
+						<p class="stat__data"><span>3</span>Birth Report</p>
+					</section>
+					<section class="stat">
+						<span class="stat__icon" id="death"><i class="material-icons">hotel</i></span>
+						<p class="stat__data"><span>1</span>Death Report</p>
+					</section>
+                    <section class="dashboard__graph"><canvas id="serviceChart"></canvas></section>
+					<section class="dashboard__graph"><canvas id="earningsChart"><canvas></section>
+                    <section class="dashboard__graph"><canvas id="newPatientsChart"><canvas></section>
+                    <section class="dashboard__graph"><canvas id="pharmacyChart"><canvas></section>
+                    <section class="dashboard__graph"><canvas id="labChart"><canvas></section>
+                    <section class="dashboard__graph"><canvas id="visitorsChart"><canvas></section>
+				</div>
+			</div>
+		</main>
+	</div>
+    <script src="script.js"></script>
+</body>
+</html>
