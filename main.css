@@ -293,6 +293,10 @@ body {
     grid-auto-flow: row;
 }
 
+.dashboard__stats > section {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
 .stat {
 	display: flex;
 	justify-content: space-between;
@@ -300,7 +304,6 @@ body {
     padding: 1em;
 	background-color: white;
 	border-radius: 3px;
-	box-shadow: 5px 5px 10px #d7d7d7, -5px -5px 10px #d7d7d7;
 }
 
 .stat__icon {
@@ -360,20 +363,6 @@ body {
     grid-column: span 2;
     padding: 1em;
     background-color: white;
-}
-
-.graph1, .graph2, .graph3 {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	grid-gap: 30px;
-}
-
-.graph1 section, .graph2 section, .graph3 section {
-	height: 377px;
-	margin-top: 37px;
-	padding: 32px;
-	background-color: white;
-	box-shadow: 5px 5px 10px #d7d7d7, -5px -5px 10px #d7d7d7;
 }
 
 @media only screen and (min-width: 600px) {
@@ -446,6 +435,7 @@ body {
         display: flex;
         row-gap: 1.7em;
         z-index: 1;
+        font-size: 0.99rem;
     }
 
     .sidebar__menu--close{
@@ -466,14 +456,17 @@ body {
         grid-template-columns: 16.25rem auto;
     }
     
+    .header {
+        padding-inline: 1rem 2rem;
+    }
+
     .company {
         padding-left: 1.25rem;
     }
     
-
     .main {
         height: calc(100vh - 3.75rem);
-        padding: 1.6em 2em;
+        padding: 1.6rem 2rem;
         overflow-y: scroll;
     }
 
